@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SeriesSync</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="popup">
+      <header class="popup__header">
+        <h1>SeriesSync</h1>
+      </header>
+
+      <section class="card">
+        <div class="row">
+          <span>BetaSeries</span>
+          <span id="auth-status" class="status status--unknown">…</span>
+        </div>
+        <div class="row row--actions">
+          <button id="connect-btn" class="btn btn--primary">Se connecter</button>
+          <button id="disconnect-btn" class="btn btn--ghost" hidden>Déconnecter</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Plateformes</h2>
+        <label class="checkbox"><input type="checkbox" id="platform-tf1plus" /> TF1+</label>
+        <label class="checkbox"><input type="checkbox" id="platform-m6plus" /> M6+</label>
+        <label class="checkbox"><input type="checkbox" id="platform-francetv" /> France.tv</label>
+      </section>
+
+      <section class="card">
+        <h2>Dernière synchronisation</h2>
+        <div id="last-sync">Aucune synchronisation pour le moment.</div>
+      </section>
+
+      <section class="card__actions">
+        <button id="history-sync-btn" class="btn btn--secondary">Synchroniser mon historique</button>
+        <button id="open-betaseries-btn" class="btn btn--ghost">Ouvrir BetaSeries</button>
+        <button id="open-options-btn" class="btn btn--ghost">Réglages</button>
+      </section>
+
+      <footer class="popup__footer" id="simulation-banner" hidden>
+        Mode simulation actif — aucun épisode ne sera réellement marqué comme vu.
+      </footer>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

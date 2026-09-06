@@ -1,0 +1,20 @@
+{
+  "name": "series-sync",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Chrome/Edge extension that syncs watched episodes from TF1+, M6+ and France.tv to a BetaSeries account.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && node scripts/build.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.270",
+    "@types/node": "^20.14.0",
+    "esbuild": "^0.23.0",
+    "jsdom": "^30.0.1",
+    "typescript": "^5.5.0",
+    "vitest": "^2.0.0"
+  }
+}
