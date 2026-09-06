@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "SeriesSync",
+  "version": "0.1.0",
+  "description": "Automatically syncs episodes watched on TF1+, M6+ and France.tv to your BetaSeries account.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_page": "options/options.html",
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "alarms", "identity"],
+  "host_permissions": [
+    "https://api.betaseries.com/*",
+    "https://www.betaseries.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://*.tf1.fr/*"],
+      "js": ["src/content/tf1plus/content-script.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*.m6.fr/*", "https://*.6play.fr/*"],
+      "js": ["src/content/m6plus/content-script.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://*.france.tv/*"],
+      "js": ["src/content/francetv/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
